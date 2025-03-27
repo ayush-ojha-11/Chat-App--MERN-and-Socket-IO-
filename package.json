@@ -1,0 +1,22 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "This is a **Realtime Chat Application** built using the **MERN stack** (MongoDB, Express.js, React.js, Node.js) and **Socket.IO** for real-time communication.",
+  "main": "index.js",
+  "scripts": {
+    "build": "",
+    "start": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayush-ojha-11/Chat-App--MERN-and-socket-IO-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ayush-ojha-11/Chat-App--MERN-and-socket-IO-/issues"
+  },
+  "homepage": "https://github.com/ayush-ojha-11/Chat-App--MERN-and-socket-IO-#readme"
+}
