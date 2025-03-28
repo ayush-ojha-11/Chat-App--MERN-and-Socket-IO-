@@ -12,6 +12,7 @@ import { useAuthStore } from "../store/useAuthStore.js";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import AuthImagePattern from "../components/AuthImagePattern.jsx";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -70,7 +71,7 @@ const SignUpPage = () => {
               </p>
             </div>
           </div>
-          5
+
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* fullName */}
             <div className="form-control">
