@@ -12,4 +12,7 @@ export default defineConfig({
       credentials: true,
     },
   },
+  build: {
+    outDir: "dist", // make sure this line exists
+  },
 });
