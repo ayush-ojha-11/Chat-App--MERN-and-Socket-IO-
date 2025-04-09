@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://chat-app-client-theta-one.vercel.app/",
+    origin: "https://chat-app-client-theta-one.vercel.app",
     credentials: true,
   })
 );
