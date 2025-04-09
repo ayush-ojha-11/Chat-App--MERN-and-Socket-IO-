@@ -5,9 +5,7 @@ import { persist } from "zustand/middleware";
 import { io } from "socket.io-client";
 
 const BASE_URL =
-  import.meta.env.MODE === "development"
-    ? "http://localhost:5001"
-    : "https://chat-app-mern-and-socket-io.onrender.com/api";
+  import.meta.env.MODE === "development" ? "http://localhost:5001" : "/api";
 
 export const useAuthStore = create(
   persist((set, get) => ({
@@ -92,7 +90,6 @@ export const useAuthStore = create(
         query: {
           userId: authUser._id,
         },
-
         transports: ["websocket"],
       });
       socket.connect();
