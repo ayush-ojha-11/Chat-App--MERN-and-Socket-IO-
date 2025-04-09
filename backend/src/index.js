@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://chat-app-f.netlify.app", // your exact frontend URL
+    origin: CLIENT_URL, // your exact frontend URL
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
     allowedHeaders: ["Content-Type", "Authorization"], // especially if using JWT
@@ -27,17 +27,11 @@ app.use(
 app.options(
   "*",
   cors({
-    origin: "https://chat-app-f.netlify.app",
+    origin: CLIENT_URL,
     credentials: true,
   })
 );
 app.use(express.json());
-// Also manually set headers (Vercel sometimes skips Express middlewares)
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", CLIENT_URL);
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
 
 app.get("/", (req, res) => {
   res.send("Chat App backend is running.");
