@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://chat-app-client-theta-one.vercel.app/",
     credentials: true,
   })
 );
