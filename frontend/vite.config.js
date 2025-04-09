@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   proxy: {
     "/api": {
-      target: "https://chat-app-backend-five-pi.vercel.app/api",
+      target: "https://chat-app-backend-five-pi.vercel.app/",
       changeOrigin: true,
       secure: false,
       credentials: true,
