@@ -6,15 +6,12 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import { connectDB } from "./lib/db.js";
 import { app, server } from "./lib/socket.js";
-import path from "path";
 
 const CLIENT_URL = "https://chat-app-f.netlify.app";
 
 dotenv.config();
 const PORT = process.env.PORT;
-const __dirname = path.resolve();
 
-app.use(express.json());
 app.use(cookieParser());
 
 // Apply CORS middleware properly
@@ -25,6 +22,7 @@ app.use(
   })
 );
 
+app.use(express.json());
 // Also manually set headers (Vercel sometimes skips Express middlewares)
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", CLIENT_URL);
