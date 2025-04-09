@@ -2,12 +2,14 @@ import { Server } from "socket.io";
 import http from "http";
 import express from "express";
 
+const CLIENT_URL = "https://chat-app-f.netlify.app";
+
 const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173/"],
+    origin: ["http://localhost:5173/", CLIENT_URL],
     credentials: true,
   },
   transports: ["websocket"],
