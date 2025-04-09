@@ -8,7 +8,7 @@ import { connectDB } from "./lib/db.js";
 import { app, server } from "./lib/socket.js";
 import path from "path";
 
-const CLIENT_URL = "";
+const CLIENT_URL = "https://chat-app-f.netlify.app";
 
 dotenv.config();
 const PORT = process.env.PORT;
