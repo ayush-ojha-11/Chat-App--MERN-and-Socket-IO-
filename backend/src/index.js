@@ -20,7 +20,7 @@ app.use(cookieParser());
 // Apply CORS middleware properly
 app.use(
   cors({
-    origin: CLIENT_URL,
+    origin: ["http://localhost:5173", CLIENT_URL],
     credentials: true,
   })
 );
