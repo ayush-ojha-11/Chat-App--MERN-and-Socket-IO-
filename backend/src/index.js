@@ -21,6 +21,9 @@ app.use(
     credentials: true,
   })
 );
+app.get("/", (req, res) => {
+  res.send("Chat App backend is running.");
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
