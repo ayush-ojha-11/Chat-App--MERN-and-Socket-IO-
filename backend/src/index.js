@@ -8,6 +8,8 @@ import { connectDB } from "./lib/db.js";
 import { app, server } from "./lib/socket.js";
 import path from "path";
 
+const CLIENT_URL = "https://chat-app-client-theta-one.vercel.app";
+
 dotenv.config();
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
@@ -15,12 +17,21 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 
+// Apply CORS middleware properly
 app.use(
   cors({
-    origin: "https://chat-app-client-theta-one.vercel.app",
+    origin: CLIENT_URL,
     credentials: true,
   })
 );
+
+// Also manually set headers (Vercel sometimes skips Express middlewares)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", CLIENT_URL);
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("Chat App backend is running.");
 });
