@@ -14,14 +14,23 @@ const PORT = process.env.PORT;
 
 app.use(cookieParser());
 
-// Apply CORS middleware properly
 app.use(
   cors({
-    origin: ["http://localhost:5173", CLIENT_URL],
+    origin: "https://chat-app-f.netlify.app", // your exact frontend URL
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS
+    allowedHeaders: ["Content-Type", "Authorization"], // especially if using JWT
   })
 );
 
+// Optional: Manually handle preflight OPTIONS
+app.options(
+  "*",
+  cors({
+    origin: "https://chat-app-f.netlify.app",
+    credentials: true,
+  })
+);
 app.use(express.json());
 // Also manually set headers (Vercel sometimes skips Express middlewares)
 app.use((req, res, next) => {
